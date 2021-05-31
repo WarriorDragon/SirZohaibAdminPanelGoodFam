@@ -1,0 +1,61 @@
+$color: (
+  "primary": rgba(227,143,54,1),
+  "secondary": rgba(211,82,61,1),
+  "textLight": rgba(255,255,255,1),
+  "text": rgba(125,125,125,1),
+  "textDark": rgba(50,50,50,1),
+  "success": lightgreen,
+  "danger": tomato,
+  "normal": skyblue,
+  "dark0": rgba(30,30,30,1),
+  "dark1": rgba(50,50,50,1),
+  "dark2": rgba(70,70,70,1),
+  "dark3": rgba(90,90,90,1),
+  "light0": rgba(200,200,200,1),
+  "light1": rgba(235,235,235,1),
+  "light2": rgba(245,245,245,1),
+  "light3": rgba(255,255,255,1),
+  "trans": .5,
+);
+
+$font: (
+  "btn": 1.1em,
+  "min": 1em,
+  "med": 1.5em,
+  "max": 2em,
+  "super": 3em,
+  "supermax":4em,
+);
+$weight: (
+  "btn": normal,
+  "min": 500,
+  "med": 600,
+  "max": 900,
+);
+$padding: (
+  "btn": 10px,
+  "min": 20px,
+  "med": 30px,
+  "max": 40px,
+  "border": 10%,
+  "gap": 10vh,
+);
+$trans: (
+  "min": .3s,
+  "med": .7s,
+  "max": 1s,
+);
+$icon: (
+  "min": 10px,
+  "med": 20px,
+  "max": 30px,
+);
+
+$cursorOn: pointer;
+$cursorOf: normal;
+
+$desktop: 1260px;
+$tab: 760px;
+$mobile: 480px;
+
+

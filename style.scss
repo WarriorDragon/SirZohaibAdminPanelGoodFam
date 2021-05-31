@@ -1,0 +1,394 @@
+@import "includes";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: map-get($color,primary) map-get($color,dim);
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track{
+        background: map-get($color,dim);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: map-get($color,primary);
+    }
+}
+
+main{
+    margin-left: 200px;
+    transition: map-get($trans,min);
+    &.open{
+        margin-left: 45px;
+    }
+}
+
+svg{
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    max-height: 25px;
+    .cls-2{
+        stroke: map-get($color,light1);
+        fill: map-get($color,light1);
+    }
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin navbar {
+    background-color: map-get($color,dark1);
+    width: 200px;
+    height: 100vh;
+    overflow: hidden;
+    transition: map-get($trans,min);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    div{
+        cursor: $cursorOn;
+        @include flex;
+        padding: 10px;
+        width: 45px;
+        height: 45px;
+        margin-left: auto;
+        flex-direction: column;
+        justify-content: space-around;
+        span{
+            width: 25px;
+            height: 3px;
+            background-color: map-get($color,light1);
+            transition: map-get($trans,med);
+        }
+        &:hover{
+            span:nth-child(1){
+                transform: rotateZ(-10deg);
+            }
+            span:nth-child(2){
+                transform: scale(.8,1);
+            }
+            span:nth-child(3){
+                transform: rotateZ(10deg);
+            }
+        }
+        &.open{
+            span:nth-child(1){
+                transform: translateY(250%) rotateZ(-45deg);
+            }
+            span:nth-child(2){
+                transform: scale(0,1);
+            }
+            span:nth-child(3){
+                transform: translateY(-250%) rotateZ(45deg);
+            }
+            &:hover{
+                span:nth-child(1){
+                    transform: rotateZ(-30deg);
+                }
+                span:nth-child(2){
+                    transform: scale(.8,1);
+                }
+                span:nth-child(3){
+                    transform: rotateZ(30deg);
+                }
+            }
+        }
+    }
+    a{
+        @include flex;
+        justify-content: flex-start;
+        text-decoration: none;
+        color: map-get($color,textLight);
+        background-color: map-get($color,dark1);
+        img{
+            margin: map-get($padding,btn);
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            transition: map-get($trans,min);
+        }
+        p{            
+            min-width: 100%;
+            margin: 10px;
+            white-space: nowrap;
+        }
+
+    }
+    ul{
+        a{
+            @include flex;
+            justify-content: flex-start;
+            text-decoration: none;
+            color: map-get($color,textLight);
+            background-color: map-get($color,dark2);
+            svg{
+                margin: map-get($padding,btn);
+            }
+            li{
+                min-width: 100%;
+                list-style: none;
+                padding: map-get($padding,btn);
+                white-space: nowrap;
+            }
+            &:hover{
+                background-color: map-get($color,light3);
+                color: map-get($color,dark1);
+                svg{
+                    .cls-2{
+                        stroke: map-get($color,dark1);
+                        fill: map-get($color,dark1);
+                    }
+                }
+            }
+            &.active{
+                background-color: map-get($color,light3);
+                color: map-get($color,dark1);
+                svg{
+                    .cls-2{
+                        stroke: map-get($color,dark1);
+                        fill: map-get($color,dark1);
+                    }
+                }
+            }
+        }
+        nav{
+            a{
+                @include flex;
+                justify-content: flex-start;
+                text-decoration: none;
+                color: map-get($color,textLight);
+                background-color: map-get($color,dark3);
+                &.active{
+                    background-color: map-get($color,light3);
+                    color: map-get($color,dark1);
+                    svg{
+                        .cls-2{
+                            stroke: map-get($color,dark1);
+                            fill: map-get($color,dark1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.open{
+        width: 45px;
+        a{
+            img{
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+@mixin form {
+    form{
+        @include flex;
+        flex-direction: column;
+        padding: map-get($padding,btn);
+        div{
+            @include flex;
+            // background-color: map-get($color,dark2);
+            box-shadow: rgba(0,0,0,.1) 0px 0px 10px 2px;
+            padding: map-get($padding,btn);
+            cursor: $cursorOn;
+            margin: map-get($padding,btn);
+            svg{
+                // margin: map-get($padding,btn);
+                width: 20px;
+                height: 20px;
+                .cls-2{
+                    stroke: map-get($color,dark1);
+                    fill: map-get($color,dark1);
+                }
+            }
+            input{
+                // margin: map-get($padding,btn);
+                outline: none;
+                border: none;
+                height: 25px;
+                background-color: rgba(#000000,0);
+                color: map-get($color,dark1);
+                font-size: map-get($font,btn);
+                width: 200px;
+                text-align: center;
+            }
+            input[type=submit]{
+                cursor: $cursorOn;
+            }
+            .custom-file-upload{
+                outline: none;
+                border: none;
+                height: 25px;
+                background-color: rgba(#000000,0);
+                color: map-get($color,dark1);
+                font-size: map-get($font,btn);
+                width: 200px;
+                text-align: center;
+                input[type=file]{
+                    display: none;
+                }
+            }
+            &:hover{
+                box-shadow: rgba(0,0,0,.2) 0px 0px 10px 2px;
+            }
+        }
+    }
+}
+
+@mixin title {
+    background-color: map-get($color,dark1);
+    @include flex;
+    padding: map-get($padding,med);
+    margin: map-get($padding,med);
+    h1{
+        font-weight: map-get($weight,med);
+        font-size: map-get($font,med);
+        color: map-get($color,light1);
+    }
+}
+
+@mixin locations {
+    margin: map-get($padding,med);
+    .collapsible {
+        @include flex;
+        background-color: map-get($color,dark1);
+        color: map-get($color,textLight);
+        cursor: $cursorOn;
+        padding: map-get($padding,min);
+        border: none;
+        width: 100%;
+        text-align: left;
+        outline: none;
+        font-size: map-get($font,btn);
+        &:hover {
+            box-shadow: rgba(0,0,0,.2) 0px 0px 10px 2px;
+            background-color: map-get($color,light2);
+            color: map-get($color,dark1);
+        }
+        img{
+            width: 30%;
+            height: 30%;
+        }
+    } 
+    .content {
+        padding: 10px;
+        display: none;
+        overflow: hidden;
+        background-color: map-get($color,light0);
+        a{
+            text-decoration: none;
+            button{
+                @include flex;
+                background-color: map-get($color,dark3);
+                color: map-get($color,textLight);
+                cursor: $cursorOn;
+                padding: map-get($padding,min);
+                border: none;
+                width: 100%;
+                text-align: left;
+                outline: none;
+                font-size: map-get($font,btn);
+                &:hover {
+                    box-shadow: rgba(0,0,0,.2) 0px 0px 10px 2px;
+                    background-color: map-get($color,success);
+                    color: map-get($color,dark1);
+                }
+            }
+        }
+        .locDel{
+            button{
+                background-color: map-get($color,danger);                
+            }
+        }
+        .editA{
+            button{
+                background-color: map-get($color,normal);                
+            }
+        }
+    }  
+}
+
+#locations{
+    @include locations;
+}
+
+#navbar{
+    @include navbar;
+}
+
+#title{
+    @include title;
+}
+
+#form{
+    @include form;
+}
+
+
+
+
+// MOBILE
+@media(max-width: $tab){
+    #navbar{
+        width: 45px;
+        a{
+            img{
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+    #mainbody{
+        margin-left: 45px;
+    }
+
+    #title{
+        padding: map-get($padding,min);
+        margin: map-get($padding,btn);
+        h1{
+            font-size: map-get($font,btn);
+        }
+    }
+
+    #locations{
+        margin: map-get($padding,btn);
+        .collapsible{
+            padding: map-get($padding,btn);
+            font-size: map-get($font,min);
+            img{
+                width: 50%;
+                height: 50%;
+            }
+        }
+        .content{
+            a{
+                button{
+                    padding: map-get($padding,btn);
+                    font-size: map-get($font,min);
+                }
+            }
+        }
+    }
+}
+
+// TAB
+@media(min-width: $tab) and (max-width: $desktop){
+
+}
+
+
+// DESKTOP
+@media(min-width: $desktop){
+
+}
